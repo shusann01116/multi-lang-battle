@@ -91,3 +91,13 @@ services:
       - ./apps/vlang:/apps/vlang
       - ./apps/cpp:/apps/cpp
       - ./fixtures/:/fixtures
+
+  rust:
+    build:
+      context: .
+      target: rust
+    image: multi-lang-battle-rust
+    command: "make build_run"
+    volumes:
+      - ./apps/rust:/apps/rust
+      - ./fixtures/:/fixtures

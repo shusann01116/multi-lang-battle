@@ -2,7 +2,7 @@ build:
 	./create_file.sh
 	docker-compose build
 
-run_all: run_c run_cpp run_go run_java run_python run_ruby run_scala
+run_all: run_c run_cpp run_go run_java run_python run_ruby run_scala run_rust
 
 run_c:
 	@echo "** C-Lang **" && docker-compose run --rm c-lang && echo
@@ -27,3 +27,6 @@ run_ruby:
 
 run_scala:
 	@echo "** Scala **" && docker-compose run --rm scala && echo
+
+run_rust:
+	@echo "** Rust **" && docker-compose run --rm rust && echo

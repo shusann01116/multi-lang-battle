@@ -75,7 +75,7 @@ COPY ./apps/python /apps/python
 WORKDIR /apps/python/
 
 #############################
-# Ruby 
+# Ruby
 #############################
 FROM base as ruby-build
 RUN apt-get install -y autoconf bison build-essential \
@@ -116,3 +116,13 @@ RUN apt-get install -y git && \
     cd v && make && ln -s /opt/vlang/v/v /usr/local/bin/v
 
 WORKDIR /apps/vlang
+
+#############################
+# Rust
+#############################
+FROM c-common as rust
+ENV CARGO_HOME /opt/.cargo
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+ENV PATH $PATH:$CARGO_HOME/bin
+COPY ./apps/rust /apps/rust
+WORKDIR /apps/rust

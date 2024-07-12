@@ -89,3 +89,9 @@ make run_ruby
 ```bash
 make run_scala
 ```
+
+# Rust
+
+```bash
+makee run_rust
+```
